@@ -10,6 +10,10 @@ jobs:
     steps:
       - name: version docker
         run: sudo docker -v
+      - name: version docker compose
+        run: sudo docker-compose -v
+      - name: conteners running
+        run: sudo docker ps
       - name: install docker
         run: sudo apt-get update && sudo apt-get install -y docker.io
       - name: install docker compose
