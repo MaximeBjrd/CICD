@@ -3,7 +3,7 @@ name: cicd
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -14,3 +14,9 @@ jobs:
         run: sudo docker ps
       - name: install docker compose
         run: sudo apt-get install -y docker-compose
+      - name: version docker compose
+        run: sudo docker-compose -v
+      - name: Checkout code
+        uses: actions/checkout@v5
+      - name: build and run docker compose
+        run: sudo docker compose up -d
